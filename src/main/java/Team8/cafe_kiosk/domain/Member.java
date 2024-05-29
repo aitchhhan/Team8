@@ -1,20 +1,19 @@
 package Team8.cafe_kiosk.domain;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor
+@Getter
 public class Member {
 
     @Id @GeneratedValue
-    private Long memberId;
+    private Long id;
     private int phoneNumber;
-
-    @Enumerated(EnumType.STRING)
-    private RoleType role = RoleType.ROLE_CUSTOMER;
-    public Member(int phoneNumber, RoleType role) {
+    private int point;
+    public Member(int phoneNumber) {
         this.phoneNumber = phoneNumber;
-        this.role = role;
     }
 }
